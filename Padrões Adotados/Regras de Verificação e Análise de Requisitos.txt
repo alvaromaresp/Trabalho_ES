@@ -1,0 +1,13 @@
+# Para o processo de validação e análise dos requisitos serão utilizadas as seguintes regras:
+
+* Evitar palavras que podem gerar ambiguidade, como, por exemplo: "e", "ou", "até", "rapidamente";
+* Evitar frases grandes;
+* Separar requisitos de um a um.
+
+# A nomenclatura será feita na forma:
+
+* Requisito Funcional: RFX;
+* Requisito Não Funcional: RNFY;
+* Requisito Opcional: RFOZ.
+
+Sendo X, Y e Z o número de identificação respectivo a cada requisito.

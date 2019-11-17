@@ -1,0 +1,6 @@
+1. Código identado 
+2. Variáveis com nomes intuitivos e significativos
+3. Funções com nomes intuitivos e significativos
+4. Comentários (em forma de PHPdoc) antes de cada método
+5. Variáveis com nome composto devem usar Camel Case (primeira letra de cada palavra maiúscula)
+6. Nomes de classes começam com letras maiúsculas, objetos (instancias da classe) e métodos começam com letras minúsculas.

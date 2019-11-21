@@ -23,5 +23,6 @@
         <a href="{{ route('carro.show', $carro->id) }}">Detalhes</a>
         <hr>
     @endforeach
+    <a href="{{ route ('carro.create')}}"> Cadastrar novo carro </a>
 </div>
 @endsection

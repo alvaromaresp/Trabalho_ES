@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <a href="{{ route('carro.index')}}"> Carros </a>
                 </div>
             </div>
         </div>

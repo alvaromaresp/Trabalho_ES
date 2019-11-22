@@ -32,7 +32,7 @@
                <td><a href="{{ route('carro.show', $carro->id) }}"><spam class="fa fa-info fa-2x show-icon"></a></td>
                <td> <img src="{{ $carro->foto }}"/> </td>
            </tr>
-        @endforeach
+
     </table>
 </div>
 @endsection

@@ -15,7 +15,7 @@ class CarroController extends Controller
      */
     public function index()
     {
-        $carros = Carro::all();
+        $carros = Auth::user()->carros;
         return view('CRUDS.Carro.index')->with(['carros' => $carros]);
     }
 
@@ -86,7 +86,10 @@ class CarroController extends Controller
      */
     public function show(Carro $carro)
     {
-        return view('CRUDS.Carro.show')->with('carro', $carro);
+        if ($carro->user->id == Auth::user()->id)
+            return view('CRUDS.Carro.show')->with('carro', $carro);
+        else
+            return "Você não é dono desse carro!!!";
     }
 
     /**
@@ -97,7 +100,10 @@ class CarroController extends Controller
      */
     public function edit(Carro $carro)
     {
-        return view('CRUDS.Carro.edit')->with('carro', $carro);
+        if ($carro->user->id == Auth::user()->id)
+            return view('CRUDS.Carro.edit')->with('carro', $carro);
+        else
+            return "Você não é dono desse carro!";
     }
 
     /**
@@ -109,6 +115,8 @@ class CarroController extends Controller
      */
     public function update(Request $request, Carro $carro)
     {
+        if ($carro->user->id != Auth::user()->id)
+            return "Você não é dono desse carro!";
         try {
             $validatedData = $this->validation($request, true);
 
@@ -143,6 +151,9 @@ class CarroController extends Controller
      */
     public function destroy(Carro $carro)
     {
+        if ($carro->user->id == Auth::user()->id)
+            return "Você não é dono desse carro!";
+
         try {
             $this->removePhoto('/public_images/Carro/' . $carro->id);
             $carro->delete();

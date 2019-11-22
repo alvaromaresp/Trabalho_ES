@@ -7,7 +7,7 @@
         <title>SACC</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" type="text/css" href=""{{ URL::asset('css/welcome.css') }}""/>
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/welcome.css') }}"/>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
 

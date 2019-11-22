@@ -24,6 +24,20 @@
     max-width: 30em;
     max-height: 20em;
 }
+
 .icons-carro {
     align-self: flex-end;
+}
+
+.inpItens {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inpItens > div {
+    min-width: 6em !important;
+}
+
+.inpItens input {
+    width: 100% !important;
 }

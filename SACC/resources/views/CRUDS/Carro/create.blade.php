@@ -18,17 +18,46 @@
 <div class="container">
     <form method="POST" action="{{ route('carro.store') }}" enctype="multipart/form-data">
         @csrf
-        <table class="table table-hover table-bordered">
-            <tr>
-                <td><input type="text" name="nome" id="nome" placeholder="Nome" required/></td>
-                <td><input type="text" name="marca" id="maarca" placeholder="Marca" required/></td>
-                <td><input type="number" min="1900" max="2100" name="ano" id="ano" placeholder="Ano" required/></td>
-                <td><input type="number" min="1" max="100" name="lugares" id="lugares" placeholder="Lugares" required/></td>
-                <td>Airbag: <input type="checkbox" value="1" name="airbag" id="airbag"/></td>
-                <td><input type="file" name="foto" id="foto" required/></td>
-            </tr>
-        </table>
-        <button class="submit-button" type="submit">Enviar</button>
+        <div class="infos1">
+            <div class="infos-carro">
+                <div class="inpItens">
+                    <div>Nome:</div>
+                    <div>
+                        <input type="text" name="nome" id="nome" placeholder="Nome" required/>
+                    </div>
+                </div>
+                <div class="inpItens">
+                    <div>Marca:</div>
+                    <div>
+                        <input type="text" name="marca" id="maarca" placeholder="Marca" required/>
+                    </div>
+                </div>
+                <div class="inpItens">
+                    <div>Ano:</div>
+                    <div>
+                        <input type="number" min="1900" max="2100" name="ano" id="ano" placeholder="Ano" required/>
+                    </div>
+                </div>
+                <div class="inpItens">
+                    <div>Lugares:</div>
+                    <div>
+                        <input type="number" min="1" max="100" name="lugares" id="lugares" placeholder="Lugares" required/>
+                    </div>
+                </div>
+                <div class="inpItens">
+                    <div>Airbag:</div>
+                    <div>
+                        <input type="checkbox" value="1" name="airbag" id="airbag"/>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="file" name="foto" id="foto" required/>
+            </div>
+        </div>
+        <div>
+            <button class="submit-button" type="submit">Enviar</button>
+        </div>
     </form>
 </div>
 @endsection

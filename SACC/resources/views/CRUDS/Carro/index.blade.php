@@ -29,11 +29,11 @@
 
                    <td>
                        <form method="POST" action="{{ route('carro.destroy',$carro->id) }}" >
-                        @csrf
-                        <input type="hidden" name="_method" value="delete" />
-                        <button class="btn" type="submit">
-                           <span class="fa fa-trash fa-2x show-icon"></span>
-                        </button>
+                            @csrf
+                            <input type="hidden" name="_method" value="delete" />
+                            <button class="btn" type="submit">
+                                <span class="fa fa-trash fa-2x show-icon"></span>
+                            </button>
                         </form>
                     </td>
 

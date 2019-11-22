@@ -4944,6 +4944,10 @@ input[type=button].btn-block {
   color: #fff;
 }
 
+.navbar-purple{
+    color: #470E80;
+}
+
 .navbar-dark .navbar-nav .nav-link {
   color: rgba(255, 255, 255, 0.5);
 }
@@ -11099,4 +11103,3 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-

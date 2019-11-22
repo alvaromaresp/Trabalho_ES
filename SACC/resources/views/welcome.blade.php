@@ -6,35 +6,29 @@
 
         <title>SACC</title>
 
-        <!-- Fonts -->
-        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/welcome.css') }}"/>
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}"/>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
 
-
-        <!-- Styles -->
 
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <nav class = "full-lenght nav_bar">
+            <div class="top-left logo">
+                SACC
+            </div>
             @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
+                <div class="top-right">
+                    <a class="index-links" href="{{ route('login') }}">Entrar</a>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Registrar</a>
+                            <a class="index-links" href="{{ route('register') }}">Registrar</a>
                         @endif
-                    @endauth
                 </div>
             @endif
+        </nav>
+        <div class="flex-center position-ref full-height ">
 
             <div class="content">
-                <div class="title m-b-md">
-                    SACC
-                </div>
-
                 <div class="title m-b-md">
                     <h6> Sistema de Avaliação e Cadastro de Caronas </h6>
                 </div>

@@ -1,38 +1,48 @@
 @extends('layouts.app')
-
+@section('head')
+<link rel="stylesheet" href="{{URL::asset('css/carro.css') }}"/>
+@endsection
 @section('content')
 
-@if(Session::has('msg'))
-{{Session::get("msg")}}
-@endisset
 
-@foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-@endforeach
+
+
 
 
 <div class="container">
-    <h1>Carro:</h1>
-    <hr>
-    <table class="table table-hover table-bordered">
-        <thead><tr><th>Nome</th><th>Marca</th><th>Ano</th><th>Lugares</th><th>Airbag</th></tr></thead>
+    @if(Session::has('msg'))
+        <div class="alert alert-info" role="alert">
+            {{Session::get("msg")}}
+        </div>
+    @endif
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-error" role="alert">
+            <li>{{ $error }}</li>
+        </div>
+    @endforeach
+    <div class="infos1">
+        <div class="infos-carro">
+            <div><h1>{{$carro->nome}}</h1></div>
+            <div>Marca: {{$carro->marca}}</div>
+            <div>Ano: {{$carro->ano}}</div>
+            <div>Lugares: {{$carro->lugares}}</div>
+            <div>Airbag: {{$carro->airbag?'Sim':'Não'}} </div>
+        </div>
+        <div>
+            <img class="img-carro" src="{{ $carro->foto }}" />
+        </div>
 
-           <tr>
-               <td>{{$carro->nome}}</td>
-               <td>{{$carro->marca}} </td>
-               <td>{{$carro->ano}} </td>
-               <td>{{$carro->lugares}} </td>
-               <td>{{$carro->airbag?'Sim':'Não'}} </td>
-               <form method="POST" action="{{ route('carro.destroy',$carro->id) }}" >
-                   @csrf
-                   <input type="hidden" name="_method" value="delete" />
-                   <td><a type="submit"><spam class="fa fa-trash fa-2x show-icon"></spam></a></td>
-               </form>
-               <td><a href="{{ route('carro.edit',$carro->id) }}"><spam class="fa fa-pencil-square fa-2x show-icon"></spam></a></td>
-               <td><a href="{{ route('carro.show', $carro->id) }}"><spam class="fa fa-info fa-2x show-icon"></a></td>
-               <td> <img src="{{ $carro->foto }}"/> </td>
-           </tr>
+    </div>
+    <div class="icons-carro">
+        <a href="{{ route('carro.edit',$carro->id) }}"><span class="fa fa-pencil-square fa-2x show-icon"></span></a>
+        <a type="submit" onclick="event.preventDefault(); document.getElementById('delete-form').submit();"><span class="fa fa-trash fa-2x show-icon"></span></a>
+        <form method="POST" id="delete-form" action="{{ route('carro.destroy',$carro->id) }}" >
+            @csrf
+            <input type="hidden" name="_method" value="delete" />
+        </form>
+    </div>
 
-    </table>
+
 </div>
+
 @endsection

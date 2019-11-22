@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('head')
+<link rel="stylesheet" href="{{URL::asset('css/carro.css') }}"/>
+@endsection
 @section('content')
 
 @if(Session::has('msg'))

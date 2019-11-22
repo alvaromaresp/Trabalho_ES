@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,16 +21,17 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}"/>
-
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('css/bootstrap.min.css')}}"/>
+    @yield('head')
 </head>
-<body>
+<body style="background-image: url({{ URL::asset('img/street.jpg' )}})">
     <div id="app">
 
         <nav class = "full-lenght nav_bar">
-            <div class="top-left logo">
+            <div class="logo">
                 SACC
             </div>
-            <div class="top-right">
+            <div class="">
             @guest
 
                     <a class="index-links" href="{{ route('login') }}">Entrar</a>
@@ -38,15 +40,31 @@
                         @endif
             @else
                     <div>
-                        <a class="index-links" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
+                        <div id="linksEsq"> <!-- LINKS NA ESQUERDA -->
+                        <div><a href="{{route('home')}}" class="navLink {{Request::is('home')? 'activeNavLink':''}}">Home</a></div>
+                        <div><a  href="{{route('carro.index')}}" class="navLink {{Request::is('carro')? 'activeNavLink':''}}">Carros</a></div>
+                        <div class="dropdown">
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
+                            <div class="btn" style="background-color: white; border-radius: 50%" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="fa fa-2x fa-user show-icon"></span>
+                            </div>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                <a class="dropdown-item index-links" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                                </a>
+
+                            </div>
+
+
+                        </div>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
                     </div>
             @endguest
             </div>
@@ -56,5 +74,6 @@
             @yield('content')
         </main>
     </div>
+    <script type="text/javascript" src="{{URL::asset('js/bootstrap.min.js')}}"></script>
 </body>
 </html>

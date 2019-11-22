@@ -1,0 +1,29 @@
+.container {
+    border: 0.2em solid #36213e;
+    border-radius: 0.5em;
+    background-color: white;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.infos1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.infos-carro {
+    display: flex;
+    flex-direction: column;
+    color: #36213e;
+    font-size: 1.2em;
+}
+
+.img-carro {
+    max-width: 30em;
+    max-height: 20em;
+}
+.icons-carro {
+    align-self: flex-end;
+}

@@ -70,7 +70,7 @@ class CarroController extends Controller
             $extension = strtolower($file->getClientOriginalExtension());
             $path = $this->uploadPhoto($file, '/public_images/Carro/' . $carro->id . "/foto." . $extension);
             $carro->fill(['foto' => $path])->save();
-            return back()->with('msg', 'Criado com sucesso!');
+            return redirect()->route('carro.show', $carro)->with('msg', 'Criado com sucesso!');
         } catch (\Illuminate\Validation\ValidationException $e) {
             return back()->withErrors($e->validator);
         } catch (\Exception $e) {
@@ -151,7 +151,7 @@ class CarroController extends Controller
      */
     public function destroy(Carro $carro)
     {
-        if ($carro->user->id == Auth::user()->id)
+        if ($carro->user->id != Auth::user()->id)
             return "Você não é dono desse carro!";
 
         try {

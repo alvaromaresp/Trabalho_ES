@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .infos-carro {
@@ -31,13 +32,44 @@
 
 .inpItens {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1%;
 }
 
 .inpItens > div {
-    min-width: 6em !important;
+    text-align: left;
+    width: 10em;
 }
 
 .inpItens input {
-    width: 100% !important;
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+    padding: 2%;
+}
+
+#airbag {
+    width: 5%;
+}
+
+.button {
+    background-color: #4a3580;
+    color: white;
+    width: 50%;
+    border-radius: 15px;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    text-align: center;
+    margin-top: 2%;
+    font-size: larger;
+    border: none;
+}
+
+.root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

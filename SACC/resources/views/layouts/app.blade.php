@@ -25,7 +25,7 @@
     @yield('head')
 </head>
 <body style="background-image: url({{ URL::asset('img/street.jpg' )}})">
-    <div id="app">
+    <div id="app" style="height: 100%;">
 
         <nav class = "full-lenght nav_bar">
             <div class="logo">
@@ -70,7 +70,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" id="main">
             @yield('content')
         </main>
     </div>

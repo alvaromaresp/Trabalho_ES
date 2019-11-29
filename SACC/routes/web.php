@@ -19,6 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/oferecerCarona', function () {
+    return view('CRUDS.Carona.create');
+}) -> name('oferecerCarona');
+
 Route::middleware(['auth'])->group(function () {
     Route::resource('carro', 'CarroController');
 });

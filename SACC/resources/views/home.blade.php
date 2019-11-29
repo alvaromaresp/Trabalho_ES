@@ -1,23 +1,19 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="{{URL::asset('css/dash.css') }}"/>
+
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+<div class="group">
+    <a  href="{{route('oferecerCarona')}}" class="button">
+        Oferecer carona
+    </a>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <a  href="{{route('carro.index')}}" class="button">
+        Caronas pegadas
+    </a>
 
-                    <a href="{{ route('carro.index')}}"> Carros </a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <a  href="{{route('carro.index')}}" class="button">
+        Caronas marcadas
+    </a>
 </div>
 @endsection

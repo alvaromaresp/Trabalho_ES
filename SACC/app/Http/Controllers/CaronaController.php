@@ -61,7 +61,9 @@ class CaronaController extends Controller
     {
         try {
             $validatedData = $this->validation($request);
-            $carona = Carona::create($request->all);
+            $all = $request->all();
+            $all['oferece'] = Auth::user()->id;
+            $carona = Carona::create($request->all());
             return redirect()->route('carona.show', $carona)->with('msg', "Criado com sucesso!");
         } catch (\Illuminate\Validation\ValidationException $e) {
             return back()->withErrors($e->validator);

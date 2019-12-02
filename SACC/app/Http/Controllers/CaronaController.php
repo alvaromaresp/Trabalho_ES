@@ -15,7 +15,28 @@ class CaronaController extends Controller
     public function index()
     {
         $caronas = Carona::all();
-        return $caronas;
+        return view('CRUDS.Carona.index')->with(['caronas' => $caronas]);
+    }
+
+    private function validation($request, $edit = false)
+    {
+        $complete = $edit ? '' : 'required';
+        $validatedData = $request->validate([
+            'nome' => 'required|max:190',
+            'marca' => 'required|max:190',
+            'ano' => 'required|integer|min:1900',
+            'lugares' => 'required|max:100|min:1',
+            'airbag' => '',
+            'foto' => 'image|' . $complete
+        ], [
+            'nome.required' => 'Você não preencheu o nome!',
+            'marca.required' => 'Você não preencheu a marca!',
+            'ano.required' => 'Preencha um ano válido! (maior que 1900)',
+            'lugares.required' => 'Você não preencheu quantos lugares tem o carro!',
+            'foto.required' => 'Você não colocou uma foto!',
+            'foto.image' => 'O arquivo que você enviou não é uma foto!'
+        ]);
+        return $validatedData;
     }
 
     /**
@@ -25,7 +46,7 @@ class CaronaController extends Controller
      */
     public function create()
     {
-        //
+        return view('CRUDS.Carona.create');
     }
 
     /**
@@ -47,7 +68,7 @@ class CaronaController extends Controller
      */
     public function show(Carona $carona)
     {
-        //
+        return view('CRUDS.Carona.show')->with(['carona' => $carona]);
     }
 
     /**
@@ -58,7 +79,7 @@ class CaronaController extends Controller
      */
     public function edit(Carona $carona)
     {
-        //
+        return view('CRUDS.Carona.edit')->with(['carona' => $carona]);
     }
 
     /**

@@ -26,6 +26,8 @@
 
     @yield('css')
 </head>
+<body style="background-image: url({{ URL::asset('img/street.jpg' )}})">
+    <div id="app" style="height: 100%;">
 
 <body class="skin-blue sidebar-mini">
 @if (!Auth::guest())
@@ -138,14 +140,9 @@
         </div>
     </nav>
 
-    <div id="page-content-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    @yield('content')
-                </div>
-            </div>
-        </div>
+        <main class="py-4" id="main">
+            @yield('content')
+        </main>
     </div>
     @endif
 

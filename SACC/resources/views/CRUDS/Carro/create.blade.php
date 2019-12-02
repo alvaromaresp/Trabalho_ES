@@ -22,33 +22,23 @@
             <div class="infos-carro">
                 <div class="inpItens">
                     <div>Nome:</div>
-                    <div>
-                        <input type="text" name="nome" id="nome" placeholder="Nome" required/>
-                    </div>
+                    <input class="input" type="text" name="nome" id="nome" placeholder="Nome" required/>
                 </div>
                 <div class="inpItens">
                     <div>Marca:</div>
-                    <div>
-                        <input type="text" name="marca" id="maarca" placeholder="Marca" required/>
-                    </div>
+                    <input class="input" type="text" name="marca" id="maarca" placeholder="Marca" required/>
                 </div>
                 <div class="inpItens">
                     <div>Ano:</div>
-                    <div>
-                        <input type="number" min="1900" max="2100" name="ano" id="ano" placeholder="Ano" required/>
-                    </div>
+                    <input class="input" type="number" min="1900" max="2100" name="ano" id="ano" placeholder="Ano" required/>
                 </div>
                 <div class="inpItens">
                     <div>Lugares:</div>
-                    <div>
-                        <input type="number" min="1" max="100" name="lugares" id="lugares" placeholder="Lugares" required/>
-                    </div>
+                    <input class="input" type="number" min="1" max="100" name="lugares" id="lugares" placeholder="Lugares" required/>
                 </div>
                 <div class="inpItens">
                     <div>Airbag:</div>
-                    <div>
-                        <input type="checkbox" value="1" name="airbag" id="airbag"/>
-                    </div>
+                    <input class="input" type="checkbox" value="1" name="airbag" id="airbag"/>
                 </div>
             </div>
             <div>

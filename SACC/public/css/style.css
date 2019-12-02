@@ -124,3 +124,8 @@ body {
     background-position: center;
     background-size: cover;
 }
+
+#main {
+    display: flex;
+    flex: 1;
+}

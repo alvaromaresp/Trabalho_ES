@@ -1,10 +1,19 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="{{URL::asset('css/dash.css') }}"/>
+
 @section('content')
-<div class="container">
-    <div class="row">
+<div class="group">
+    <a  href="{{route('oferecerCarona')}}" class="button">
+        Oferecer carona
+    </a>
 
+    <a  href="{{route('carro.index')}}" class="button">
+        Caronas pegadas
+    </a>
 
-    </div>
+    <a  href="{{route('carro.index')}}" class="button">
+        Caronas marcadas
+    </a>
 </div>
 @endsection

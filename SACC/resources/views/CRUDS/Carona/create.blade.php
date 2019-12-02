@@ -23,7 +23,11 @@
             </div>
             <div class="inpItens">
                 <div>Carro:</div>
-                <input class="input" type="number" name="Carro" id="Carro" placeholder="Carro" required/>
+                <select>
+                    @foreach (Auth::user()->carros as $carro)
+                        <option value="{{$carro->id}}">{{$carro->marca}} - {{$carro->modelo}} - {{$carro->placa}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="inpItens">
                 <div>Pessoas no carro:</div>

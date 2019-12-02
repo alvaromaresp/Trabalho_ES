@@ -4,11 +4,11 @@
 
 @section('content')
 <div class="group">
-    <a  href="{{route('oferecerCarona')}}" class="button">
+<a  href="{{route('carona.create')}}" class="button">
         Oferecer carona
     </a>
 
-    <a  href="{{route('caronasPegadas')}}" class="button">
+    <a  href="" class="button">
         Caronas pegadas
     </a>
 

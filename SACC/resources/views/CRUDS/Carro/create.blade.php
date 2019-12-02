@@ -26,7 +26,11 @@
                 </div>
                 <div class="inpItens">
                     <div>Marca:</div>
-                    <input class="input" type="text" name="marca" id="maarca" placeholder="Marca" required/>
+                    <input class="input" type="text" name="marca" id="marca" placeholder="Marca" required/>
+                </div>
+                <div class="inpItens">
+                    <div>Modelo:</div>
+                    <input class="input" type="text" name="modelo" id="modelo" placeholder="Modelo" required/>
                 </div>
                 <div class="inpItens">
                     <div>Ano:</div>

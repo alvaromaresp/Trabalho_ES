@@ -8,6 +8,7 @@
     ],
     "license": "MIT",
     "require": {
+        "laravelcollective/html": "^6.0",
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.2",
@@ -15,6 +16,7 @@
         "leoamsena/dropbox-api": "^1.6"
     },
     "require-dev": {
+        "appointer/swaggervel": "^2.5",
         "facade/ignition": "^1.4",
         "fzaninotto/faker": "^1.4",
         "laravel/ui": "^1.1",

@@ -1,0 +1,250 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Laravel Generator APIs",
+        "version": "1.0.0"
+    },
+    "basePath": "/api/v1",
+    "paths": {
+        "/caronas": {
+            "get": {
+                "tags": [
+                    "carona"
+                ],
+                "summary": "Get a listing of the caronas.",
+                "description": "Get all caronas",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/carona"
+                                    }
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "carona"
+                ],
+                "summary": "Store a newly created carona in storage",
+                "description": "Store carona",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "carona that should be stored",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/carona"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/carona"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "/caronas/{id}": {
+            "get": {
+                "tags": [
+                    "carona"
+                ],
+                "summary": "Display the specified carona",
+                "description": "Get carona",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of carona",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/carona"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "carona"
+                ],
+                "summary": "Update the specified carona in storage",
+                "description": "Update carona",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of carona",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "carona that should be updated",
+                        "required": false,
+                        "schema": {
+                            "$ref": "#/definitions/carona"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "$ref": "#/definitions/carona"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "carona"
+                ],
+                "summary": "Remove the specified carona from storage",
+                "description": "Delete carona",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of carona",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "properties": {
+                                "success": {
+                                    "type": "boolean"
+                                },
+                                "data": {
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "carona": {
+            "required": [
+                "data",
+                "local",
+                "horario",
+                "carro"
+            ],
+            "properties": {
+                "data": {
+                    "description": "data",
+                    "type": "string",
+                    "format": "date"
+                },
+                "local": {
+                    "description": "local",
+                    "type": "string"
+                },
+                "horario": {
+                    "description": "horario",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "duracao": {
+                    "description": "duracao",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "carro": {
+                    "description": "carro",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "oferece": {
+                    "description": "oferece",
+                    "type": "integer",
+                    "format": "int32"
+                }
+            }
+        }
+    }
+}

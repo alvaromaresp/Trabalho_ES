@@ -91,7 +91,7 @@ class CarroController extends Controller
         if ($carro->user->id == Auth::user()->id)
             return view('CRUDS.Carro.show')->with('carro', $carro);
         else
-            return "Você não é dono desse carro!!!";
+            return back()->withErrors("Você não é dono desse carro!");
     }
 
     /**
@@ -105,7 +105,7 @@ class CarroController extends Controller
         if ($carro->user->id == Auth::user()->id)
             return view('CRUDS.Carro.edit')->with('carro', $carro);
         else
-            return "Você não é dono desse carro!";
+            return back()->withErrors("Você não é dono desse carro!");
     }
 
     /**
@@ -117,9 +117,10 @@ class CarroController extends Controller
      */
     public function update(Request $request, Carro $carro)
     {
-        if ($carro->user->id != Auth::user()->id)
-            return "Você não é dono desse carro!";
+
         try {
+            if ($carro->user->id != Auth::user()->id)
+                return new \Exception("Você não é dono desse carro!");
             $validatedData = $this->validation($request, true);
 
 
@@ -153,10 +154,12 @@ class CarroController extends Controller
      */
     public function destroy(Carro $carro)
     {
-        if ($carro->user->id != Auth::user()->id)
-            return "Você não é dono desse carro!";
+
+
 
         try {
+            if ($carro->user->id != Auth::user()->id)
+                throw new \Exception("Voê não é dono desse carro!");
             $this->removePhoto('/public_images/Carro/' . $carro->id);
             $carro->delete();
             return redirect()->route('carro.index')->with('msg', 'Deletado com sucesso!');

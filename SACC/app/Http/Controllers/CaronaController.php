@@ -59,7 +59,15 @@ class CaronaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $validatedData = $this->validation($request);
+            $carona = Carona::create($request->all);
+            return redirect()->route('carona.show', $carona)->with('msg', "Criado com sucesso!");
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return back()->withErrors($e->validator);
+        } catch (\Exception $e) {
+            return back()->withErrors($e->getMessage());
+        }
     }
 
     /**
@@ -81,7 +89,13 @@ class CaronaController extends Controller
      */
     public function edit(Carona $carona)
     {
-        return view('CRUDS.Carona.edit')->with(['carona' => $carona]);
+        try {
+            if ($carona->oferece->id != Auth::user()->id)
+                throw new \Exception("Você não é dono dessa carona!");
+            return view('CRUDS.Carona.edit')->with(['carona' => $carona]);
+        } catch (\Exception $e) {
+            return back()->withErrors($e->getMessage());
+        }
     }
 
     /**
@@ -93,7 +107,17 @@ class CaronaController extends Controller
      */
     public function update(Request $request, Carona $carona)
     {
-        //
+        try {
+            if ($carona->oferece->id != Auth::user()->id)
+                throw new \Exception("Você não é dono dessa carona!");
+            $validatedData = $this->validation($request);
+            $carona->fill($request->all)->save();
+            return redirect()->route('carona.show', $carona)->with('msg', "Editado com sucesso!");
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return back()->withErrors($e->validator);
+        } catch (\Exception $e) {
+            return back()->withErrors($e->getMessage());
+        }
     }
 
     /**
@@ -104,6 +128,15 @@ class CaronaController extends Controller
      */
     public function destroy(Carona $carona)
     {
-        //
+
+
+        try {
+            if ($carona->oferece->id != Auth::user()->id)
+                throw new \Exception("Você não é dono dessa carona!");
+            $carona->delete();
+            return redirect()->route('carona.index')->with('msg', 'Deletado com sucesso!');
+        } catch (\Exception $e) {
+            return back()->withErrors('Erro ao apagar: ' . $e->getMessage());
+        }
     }
 }

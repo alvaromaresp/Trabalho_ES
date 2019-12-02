@@ -8,7 +8,7 @@
         Oferecer carona
     </a>
 
-    <a  href="{{route('carro.index')}}" class="button">
+    <a  href="{{route('caronasPegadas')}}" class="button">
         Caronas pegadas
     </a>
 

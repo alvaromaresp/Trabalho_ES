@@ -155,12 +155,18 @@ class CarroController extends Controller
     public function destroy(Carro $carro)
     {
         try {
+            $msg = "Deletado com sucesso!";
             if ($carro->user->id != Auth::user()->id)
                 throw new Exception("Você não é dono desse carro!");
-            $this->removePhoto('/public_images/Carro/' . $carro->id);
+            try {
+                $this->removePhoto('/public_images/Carro/' . $carro->id);
+            } catch (\Spatie\Dropbox\Exceptions\BadRequest $e) {
+                $msg .= " (Obs.: Imagem já não existia!)";
+            }
             $carro->delete();
-            return redirect()->route('carro.index')->with('msg', 'Deletado com sucesso!');
+            return redirect()->route('carro.index')->with('msg', $msg);
         } catch (\Exception $e) {
+            return get_class($e);
             return back()->withErrors('Erro ao apagar: ' . $e->getMessage());
         }
     }

@@ -164,9 +164,8 @@ class CarroController extends Controller
                 $msg .= " (Obs.: Imagem já não existia!)";
             }
             $carro->delete();
-            return redirect()->route('carro.index')->with('msg', $msg);
+            return back()->with('msg', $msg);
         } catch (\Exception $e) {
-            return get_class($e);
             return back()->withErrors('Erro ao apagar: ' . $e->getMessage());
         }
     }

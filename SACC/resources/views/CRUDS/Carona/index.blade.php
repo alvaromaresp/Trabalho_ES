@@ -13,22 +13,23 @@
             {{Session::get("msg")}}
         </div>
     @endif
-    <h1>Seus carros:  <a href="{{ route('carro.create') }}"><span class="fa fa-plus-square show-icon"></span></a></h1>
+    <h1>Caronas pegadas: </h1>
 
     <hr>
     <table class="table table-hover table-bordered">
-        <thead><tr><th>Nome</th><th>Marca</th><th>Ano</th><th>Lugares</th><th>Airbag</th></tr></thead>
+        <thead><tr><th>Data</th><th>Local</th><th>Horario</th><th>Duração</th><th>Carro</th><th>Motorista</th></tr></thead>
 
-        @foreach ($carros as $carro)
+        @foreach ($caronas as $carona)
            <tr>
-               <td>{{$carro->nome}}</td>
-               <td>{{$carro->marca}} </td>
-               <td>{{$carro->ano}} </td>
-               <td>{{$carro->lugares}} </td>
-               <td>{{$carro->airbag?'Sim':'Não'}} </td>
+               <td>{{$carona->data}}</td>
+               <td>{{$carona->local}} </td>
+               <td>{{$carona->horario}} </td>
+               <td>{{$carona->duracao}} </td>
+               <td>{{$carona->carro->marca}} - {{$carona->carro->modelo}} </td>
+               <td>{{$carona->oferece->nome}}</td>
 
                    <td>
-                       <form method="POST" action="{{ route('carro.destroy',$carro->id) }}" >
+                       <form method="POST" action="{{ route('carona.destroy',$carona->id) }}" >
                             @csrf
                             <input type="hidden" name="_method" value="delete" />
                             <button class="btn" type="submit">
@@ -37,8 +38,8 @@
                         </form>
                     </td>
                     
-               <td><a href="{{ route('carro.edit',$carro->id) }}"><span class="fa fa-pencil-square fa-2x show-icon"></span></a></td>
-               <td><a href="{{ route('carro.show', $carro->id) }}"><span class="fa fa-info fa-2x show-icon"></span></a></td>
+               <td><a href="{{ route('carona.edit',$carona->id) }}"><span class="fa fa-pencil-square fa-2x show-icon"></span></a></td>
+               <td><a href="{{ route('carona.show', $carona->id) }}"><span class="fa fa-info fa-2x show-icon"></span></a></td>
            </tr>
         @endforeach
     </table>

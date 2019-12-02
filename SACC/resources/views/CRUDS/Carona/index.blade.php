@@ -13,7 +13,7 @@
             {{Session::get("msg")}}
         </div>
     @endif
-    <h1>Caronas pegadas: </h1>
+    <h1>Caronas: </h1>
 
     <hr>
     <table class="table table-hover table-bordered">
@@ -25,8 +25,8 @@
                <td>{{$carona->local}} </td>
                <td>{{$carona->horario}} </td>
                <td>{{$carona->duracao}} </td>
-               <td>{{$carona->carro->marca}} - {{$carona->carro->modelo}} </td>
-               <td>{{$carona->oferece->nome}}</td>
+               <td>{{$carona->carro()->marca}} - </td>
+               <td>{{$carona->oferece()->nome}}</td>
 
                    <td>
                        <form method="POST" action="{{ route('carona.destroy',$carona->id) }}" >

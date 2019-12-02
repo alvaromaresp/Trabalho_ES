@@ -32,7 +32,7 @@ class CarroController extends Controller
     {
         $complete = $edit ? '' : 'required';
         $validatedData = $request->validate([
-            'nome' => 'required|max:190',
+            'nome' => 'max:190',
             'marca' => 'required|max:190',
             'ano' => 'required|integer|min:1900',
             'lugares' => 'required|max:100|min:1',
@@ -41,7 +41,7 @@ class CarroController extends Controller
             'foto' => 'image|' . $complete
         ], [
             'nome.required' => 'Você não preencheu o nome!',
-            'modelo.required' => 'Você não preencheu o nome!',
+            'modelo.required' => 'Você não preencheu o modelo!',
             'marca.required' => 'Você não preencheu a marca!',
             'ano.required' => 'Preencha um ano válido! (maior que 1900)',
             'lugares.required' => 'Você não preencheu quantos lugares tem o carro!',

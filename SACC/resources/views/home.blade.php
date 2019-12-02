@@ -9,11 +9,11 @@
     </a>
 
     <a  href="" class="button">
-        Caronas pegadas
+        Caronas inscritas
     </a>
 
-    <a  href="{{route('carro.index')}}" class="button">
-        Caronas marcadas
+    <a  href="" class="button">
+        Procurar carona
     </a>
 </div>
 @endsection

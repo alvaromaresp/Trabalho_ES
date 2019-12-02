@@ -25,8 +25,8 @@
                <td>{{$carona->local}} </td>
                <td>{{$carona->horario}} </td>
                <td>{{$carona->duracao}} </td>
-               <td>{{$carona->carro()->marca}} - </td>
-               <td>{{$carona->oferece()->nome}}</td>
+               <td>{{$carona->getCarro->marca}} - {{$carona->getCarro->modelo}}</td>
+               <td>{{$carona->getOferece->name}}</td>
 
                    <td>
                        <form method="POST" action="{{ route('carona.destroy',$carona->id) }}" >

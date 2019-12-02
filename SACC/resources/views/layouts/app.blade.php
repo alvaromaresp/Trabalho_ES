@@ -41,6 +41,7 @@
             @else
                     <div>
                         <div id="linksEsq"> <!-- LINKS NA ESQUERDA -->
+                            <div><a href="{{route('home')}}" class="navLink {{Request::is('home')? 'activeNavLink':''}}">Home</a></div>
                         <div><a href="{{route('carona.index')}}" class="navLink {{Request::is('carona.index')? 'activeNavLink':''}}">Carona</a></div>
                         <div><a  href="{{route('carro.index')}}" class="navLink {{Request::is('carro')? 'activeNavLink':''}}">Carros</a></div>
                         <div class="dropdown">

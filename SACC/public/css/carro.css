@@ -49,8 +49,13 @@
     padding: 2%;
 }
 
+.inpItens select {
+    border-radius: 15px;
+
+}
+
 #airbag {
-    width: 5%;
+    width: 100%;
 }
 
 .button {

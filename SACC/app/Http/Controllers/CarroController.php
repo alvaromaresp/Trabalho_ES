@@ -154,12 +154,9 @@ class CarroController extends Controller
      */
     public function destroy(Carro $carro)
     {
-
-
-
         try {
             if ($carro->user->id != Auth::user()->id)
-                throw new \Exception("Voê não é dono desse carro!");
+                throw new Exception("Você não é dono desse carro!");
             $this->removePhoto('/public_images/Carro/' . $carro->id);
             $carro->delete();
             return redirect()->route('carro.index')->with('msg', 'Deletado com sucesso!');

@@ -9,15 +9,15 @@ class Carona extends Model
     protected $guarded = ['id'];
     public $timestamps = false;
 
-    public function oferece()
+    public function getOferece()
     {
-        return $this->belongsTo('App\User', 'oferece');
+        return $this->belongsTo('App\User', 'id');
     }
-    public function procura()
+    public function getProcura()
     {
         return $this->belongsToMany('App\User', 'carona_procura', 'carona', 'usuario');
     }
-    public function carro()
+    public function getCarro()
     {
         return $this->belongsTo('App\Carro', 'carro');
     }

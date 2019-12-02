@@ -18,6 +18,7 @@ class CreateCaronasTable extends Migration
             $table->date('data');
             $table->string('local');
             $table->integer('duracao');
+            $table->time('horario');
 
             $table->unsignedBigInteger('carro');
             $table->unsignedBigInteger('oferece');

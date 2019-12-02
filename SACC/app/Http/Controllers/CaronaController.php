@@ -22,19 +22,21 @@ class CaronaController extends Controller
     {
         $complete = $edit ? '' : 'required';
         $validatedData = $request->validate([
-            'nome' => 'required|max:190',
-            'marca' => 'required|max:190',
-            'ano' => 'required|integer|min:1900',
-            'lugares' => 'required|max:100|min:1',
-            'airbag' => '',
-            'foto' => 'image|' . $complete
+            'data' => 'required|date',
+            'local' => 'required|max:190',
+            'duracao' => 'required|integer|max:900',
+            'horario' => 'required',
+            'carro' => 'required|exists:carros,id'
         ], [
-            'nome.required' => 'Você não preencheu o nome!',
-            'marca.required' => 'Você não preencheu a marca!',
-            'ano.required' => 'Preencha um ano válido! (maior que 1900)',
-            'lugares.required' => 'Você não preencheu quantos lugares tem o carro!',
-            'foto.required' => 'Você não colocou uma foto!',
-            'foto.image' => 'O arquivo que você enviou não é uma foto!'
+            'local.max' => 'Local não deve ter mais que 190 caracteres!',
+            'duracao.integer' => 'Duração deve ser um inteiro!',
+            'duracao.max' => 'Máximo de 900 de duração!',
+            'carro.exists' => 'Carro deve ser um carro seu, válido e registrado!',
+            'data.required' => 'Insira uma data válida!',
+            'local.required' => 'Insira um local!',
+            'duracao.required' => 'Insira a duração da viagem!',
+            'horario.required' => 'Insira um horario válido!',
+            'carro.required' => 'Selecione um carro válido!',
         ]);
         return $validatedData;
     }

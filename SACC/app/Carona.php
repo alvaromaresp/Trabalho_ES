@@ -17,4 +17,8 @@ class Carona extends Model
     {
         return $this->belongsToMany('App\User', 'carona_procura', 'carona', 'usuario');
     }
+    public function carro()
+    {
+        return $this->belongsTo('App\Carro', 'carro');
+    }
 }

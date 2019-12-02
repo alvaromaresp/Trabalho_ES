@@ -36,10 +36,12 @@ class CarroController extends Controller
             'marca' => 'required|max:190',
             'ano' => 'required|integer|min:1900',
             'lugares' => 'required|max:100|min:1',
+            'modelo' => 'required|max:190',
             'airbag' => '',
             'foto' => 'image|' . $complete
         ], [
             'nome.required' => 'Você não preencheu o nome!',
+            'modelo.required' => 'Você não preencheu o nome!',
             'marca.required' => 'Você não preencheu a marca!',
             'ano.required' => 'Preencha um ano válido! (maior que 1900)',
             'lugares.required' => 'Você não preencheu quantos lugares tem o carro!',

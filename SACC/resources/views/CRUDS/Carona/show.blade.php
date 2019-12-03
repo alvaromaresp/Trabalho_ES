@@ -28,9 +28,12 @@
             <div>Carro: {{$carona->getCarro->marca}} - {{$carona->getCarro->modelo}}</div>
         </div>
         <div>
+            Inscritos: 
+            <ul>
             @foreach($carona->getProcura as $user)
-                <div>{{$user->name}}</div>
+                <li>{{$user->name}}</li>
             @endforeach
+            </ul>
         </div>
     </div>
     @if(Session::has('msg'))

@@ -51,7 +51,6 @@
 
 .inpItens select {
     border-radius: 15px;
-
 }
 
 #airbag {
@@ -77,4 +76,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.custom-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    box-shadow: -3px 25px 86px -27px rgba(0, 0, 0, 0.75);
 }

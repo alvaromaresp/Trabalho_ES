@@ -35,6 +35,14 @@
             @endforeach
             </ul>
         </div>
+         <div>
+            Feedbacks: 
+            <ul>
+            @foreach($carona->getProcura as $user)
+                <li class="card custom-card">{{$user->name}} <a href="" style="margin-left: 4%;"><span class="fa fa-trash fa-2x show-icon"></span></a></li>
+            @endforeach
+            </ul>
+        </div>
     </div>
     @if(Session::has('msg'))
         <div class="alert alert-success" role="alert">

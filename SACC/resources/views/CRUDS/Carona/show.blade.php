@@ -39,7 +39,15 @@
             Feedbacks: 
             <ul>
             @foreach($carona->getProcura as $user)
-                <li class="card custom-card">{{$user->name}} <a href="" style="margin-left: 4%;"><span class="fa fa-trash fa-2x show-icon"></span></a></li>
+                <li class="card custom-card">{{$user->name}} 
+                    <form method="POST" action="{{ route('carona.destroy',$carona->id) }}" >
+                        @csrf
+                        <input type="hidden" name="_method" value="delete" />
+                        <button class="btn" type="submit">
+                            <span class="fa fa-trash fa-2x show-icon"></span>
+                        </button>
+                    </form>
+                </li>
             @endforeach
             </ul>
         </div>

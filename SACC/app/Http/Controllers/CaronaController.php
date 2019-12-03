@@ -114,7 +114,7 @@ class CaronaController extends Controller
             if ($carona->getOferece->id != Auth::user()->id)
                 throw new \Exception("Você não é dono dessa carona!");
             $validatedData = $this->validation($request);
-            $carona->fill($request->all)->save();
+            $carona->fill($request->all())->save();
             return redirect()->route('carona.show', $carona)->with('msg', "Editado com sucesso!");
         } catch (\Illuminate\Validation\ValidationException $e) {
             return back()->withErrors($e->validator);

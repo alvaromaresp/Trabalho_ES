@@ -11,7 +11,7 @@ class Carona extends Model
 
     public function getOferece()
     {
-        return $this->belongsTo('App\User', 'id');
+        return $this->belongsTo('App\User', 'oferece');
     }
     public function getProcura()
     {

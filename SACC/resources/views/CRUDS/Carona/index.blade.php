@@ -8,11 +8,6 @@
 
 
 <div class="container" >
-    @if(Session::has('msg'))
-        <div class="alert alert-info" role="alert">
-            {{Session::get("msg")}}
-        </div>
-    @endif
     <h1>Caronas: </h1>
 
     <hr>
@@ -38,11 +33,22 @@
                         </form>
                     </td>
                     
-               <td><a href="{{ route('carona.edit',$carona->id) }}"><span class="fa fa-pencil-square fa-2x show-icon"></span></a></td>
+               <td><a href="{{ route('carona.edit', $carona->id) }}"><span class="fa fa-pencil-square fa-2x show-icon"></span></a></td>
                <td><a href="{{ route('carona.show', $carona->id) }}"><span class="fa fa-info fa-2x show-icon"></span></a></td>
            </tr>
         @endforeach
     </table>
+     @if(Session::has('msg'))
+        <div class="alert alert-success" role="alert">
+            {{Session::get("msg")}}
+        </div>
+    @endisset
+
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-danger" role="alert">
+            {{$error}}
+        </div>
+    @endforeach
 
 </div>
 @endsection

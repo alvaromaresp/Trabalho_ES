@@ -4,14 +4,10 @@
 @endsection
 @section('content')
 
-@foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-@endforeach
 
-
-
-<form method="POST" class="root">
+<form method="POST" class="root" action="{{ route('carona.update', $carona) }}" >
     @csrf
+    <input type="hidden" name="_method" value="PUT" />
     <div class="container" >
         <div class="infos-carro">
             <div class="inpItens">
@@ -47,6 +43,17 @@
                 <input value="{{$carona->lugarMala}}" class="input" type="number" name="Lugar para mala" id="Lugar para mala" required/>
             </div>
         </div>
+        @if(Session::has('msg'))
+            <div class="alert alert-success" role="alert">
+                {{Session::get("msg")}}
+            </div>
+        @endisset
+
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger" role="alert">
+                {{$error}}
+            </div>
+        @endforeach
     </div>
     <input type="submit" class="button"/>
 </form>

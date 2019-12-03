@@ -29,8 +29,8 @@
             <div class="inpItens">
                 <div>Carro:</div>
                 <select name="carro" class="form-control">
-                    @foreach ($carros as $carro)
-                        <option @if ($carro->id == $carona->carro) selected @endif value="{{$carro->id}}">{{$carro->marca}} - {{$carro->modelo}} - {{$carro->placa}}</option>
+                    @foreach (Auth::user()->carros as $carro)
+                        <option {{$carro->id == $carona->getCarro->id?'selected':''}}  value="{{$carro->id}}">{{$carro->marca}} - {{$carro->modelo}} - {{$carro->placa}}</option>
                     @endforeach
                 </select>
             </div>

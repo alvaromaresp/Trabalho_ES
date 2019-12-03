@@ -25,6 +25,7 @@
             <div><h1>{{$carro->nome}}</h1></div>
             <div>Marca: {{$carro->marca}}</div>
             <div>Ano: {{$carro->ano}}</div>
+            <div>Placa: {{$carro->placa}}</div>
             <div>Lugares: {{$carro->lugares}}</div>
             <div>Airbag: {{$carro->airbag?'Sim':'Não'}} </div>
         </div>

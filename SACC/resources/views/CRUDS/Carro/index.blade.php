@@ -17,7 +17,7 @@
 
     <hr>
     <table class="table table-hover table-bordered">
-        <thead><tr><th>Nome</th><th>Marca</th><th>Ano</th><th>Lugares</th><th>Airbag</th></tr></thead>
+        <thead><tr><th>Nome</th><th>Marca</th><th>Ano</th><th>Lugares</th><th>Airbag</th><th>Placa</th></tr></thead>
 
         @foreach ($carros as $carro)
            <tr>
@@ -26,6 +26,7 @@
                <td>{{$carro->ano}} </td>
                <td>{{$carro->lugares}} </td>
                <td>{{$carro->airbag?'Sim':'Não'}} </td>
+               <td>{{$carro->placa}}</td>
 
                    <td>
                        <form method="POST" action="{{ route('carro.destroy',$carro->id) }}" >

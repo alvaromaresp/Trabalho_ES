@@ -30,6 +30,10 @@
                     <div>Ano:</div>
                     <input value="{{$carro->ano}}" class="input" type="number" min="1900" max="2100" name="ano" id="ano" placeholder="Ano" required/>
                 </div>
+                 <div class="inpItens">
+                    <div>Placa:</div>
+                    <input value="{{$carro->placa}}" class="input" type="text" name="placa" id="placa" placeholder="Placa" required/>
+                </div>
                 <div class="inpItens">
                     <div>Lugares:</div>
                     <input value="{{$carro->lugares}}" class="input" type="number" min="1" max="100" name="lugares" id="lugares" placeholder="Lugares" required/>

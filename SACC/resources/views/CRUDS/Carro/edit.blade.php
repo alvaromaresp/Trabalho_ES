@@ -4,34 +4,60 @@
 @endsection
 @section('content')
 
-@if(Session::has('msg'))
-    {{Session::get("msg")}}
-@endisset
-
-@foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-@endforeach
 
 
 
 
 <div class="container">
-    <h1>Editar:</h1>
-    <hr>
-    <form method="POST" action="{{ route('carro.update',$carro->id) }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('carro.store') }}" enctype="multipart/form-data">
         @csrf
-        <table class="table table-hover table-bordered">
-            <tr>
-                <input type="hidden" name="_method" value="PUT" />
-                <td><input value="{{$carro->nome}}" type="text" name="nome" id="nome" placeholder="Nome" required/></td>
-                <td><input value="{{$carro->marca}}" type="text" name="marca" id="maarca" placeholder="Marca" required/></td>
-                <td><input value="{{$carro->ano}}" type="number" min="1900" max="2100" name="ano" id="ano" placeholder="Ano" required/></td>
-                <td><input value="{{$carro->lugares}}" type="number" min="1" max="100" name="lugares" id="lugares" placeholder="Lugares" required/></td>
-                <td>Airbag: <input type="checkbox" value="1" name="airbag" id="airbag" {{$carro->airbag?'checked':''}}/></td>
-                <td><input type="file" name="foto" id="foto"/></td>
-            </tr>
-        </table>
-        <button class="submit-button" type="submit">Enviar</button>
+        <div class="infos1">
+            <div class="infos-carro">
+                <div class="inpItens">
+                    <div>Nome:</div>
+                    <input value="{{$carro->nome}}" class="input" type="text" name="nome" id="nome" placeholder="Nome" required/>
+                </div>
+                <div class="inpItens">
+                    <div>Marca:</div>
+                    <input value="{{$carro->marca}}" class="input" type="text" name="marca" id="marca" placeholder="Marca" required/>
+                </div>
+                <div class="inpItens">
+                    <div>Modelo:</div>
+                    <input value="{{$carro->modelo}}" class="input" type="text" name="modelo" id="modelo" placeholder="Modelo" required/>
+                </div>
+                <div class="inpItens">
+                    <div>Ano:</div>
+                    <input value="{{$carro->ano}}" class="input" type="number" min="1900" max="2100" name="ano" id="ano" placeholder="Ano" required/>
+                </div>
+                <div class="inpItens">
+                    <div>Lugares:</div>
+                    <input value="{{$carro->lugares}}" class="input" type="number" min="1" max="100" name="lugares" id="lugares" placeholder="Lugares" required/>
+                </div>
+                <div class="inpItens">
+                    <div>Airbag:</div>
+                    <input class="input" type="checkbox" {{$carro->airbag?'checked':''}} name="airbag" id="airbag"/>
+                </div>
+            </div>
+            <div>
+                <img src="{{$carro->foto}}" alt="">
+            </div>
+            
+        </div>
+        <div>
+            <button class="submit-button" type="submit">Enviar</button>
+        </div>
+
+        @if(Session::has('msg'))
+            <div class="alert alert-success" role="alert">
+                {{Session::get("msg")}}
+            </div>
+        @endisset
+
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger" role="alert">
+                {{$error}}
+            </div>
+        @endforeach
     </form>
 </div>
 @endsection

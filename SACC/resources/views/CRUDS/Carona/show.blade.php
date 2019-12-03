@@ -27,6 +27,11 @@
         <div>
             <div>Carro: {{$carona->getCarro->marca}} - {{$carona->getCarro->modelo}}</div>
         </div>
+        <div>
+            @foreach($carona->getProcura as $user)
+                <div>{{$user->name}}</div>
+            @endforeach
+        </div>
     </div>
     @if(Session::has('msg'))
         <div class="alert alert-success" role="alert">

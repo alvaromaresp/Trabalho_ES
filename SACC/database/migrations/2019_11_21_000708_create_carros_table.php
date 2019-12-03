@@ -21,6 +21,7 @@ class CreateCarrosTable extends Migration
             $table->integer('ano');
             $table->integer('lugares');
             $table->boolean('airbag');
+            $table->string('placa');
             $table->longText('foto');
             $table->unsignedBigInteger('user_id');
 

@@ -28,6 +28,17 @@
             <div>Carro: {{$carona->getCarro->marca}} - {{$carona->getCarro->modelo}}</div>
         </div>
     </div>
+    @if(Session::has('msg'))
+        <div class="alert alert-success" role="alert">
+            {{Session::get("msg")}}
+        </div>
+    @endisset
+
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-danger" role="alert">
+            {{$error}}
+        </div>
+    @endforeach
 </div>
    
 @endsection

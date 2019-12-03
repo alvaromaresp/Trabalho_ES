@@ -5,9 +5,61 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Carona;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class CaronaController extends Controller
 {
+    public function procurar()
+    {
+        try {
+            $caronas = Carona::all()->where('data', '>=', date('Y-m-d'));
+            foreach ($caronas as $carona) {
+                foreach ($carona->getProcura as $usuario) {
+                    if ($usuario->id == Auth::user()->id) {
+                        $carona->inscrito = true;
+                    }
+                }
+            }
+            return view('CRUDS.Carona.procurarCarona')->with('caronas', $caronas);
+        } catch (\Exception $e) {
+            return back()->withErrors($e->getMessage());
+        }
+    }
+    public function minhas()
+    {
+        try {
+            $caronas = Auth::user()->caronasProcuradas;
+            return view('CRUDS.Carona.caronasInscritas')->with('caronas', $caronas);
+        } catch (\Exception $e) {
+            return back()->withErrors($e->getMessage());
+        }
+    }
+
+
+    public function desinscrever(Carona $carona)
+    {
+        try {
+            $carona->getProcura()->detach(Auth::user());
+            return back()->with('msg', 'Desinscrito com sucesso!');
+        } catch (\Exception $e) {
+            return back()->withErrors($e->getMessage());
+        }
+    }
+
+    public function inscrever(Carona $carona)
+    {
+        try {
+            if ($carona->getProcura->count() >= $carona->getCarro->lugares)
+                throw new \Exception("Não existem mais vagas nessa carona!!!");
+            $usuario = Auth::user();
+            $carona->getProcura()->save($usuario);
+            return redirect()->route('carona.show', $carona)->with('msg', 'Inscrito na carrona com sucesso!');
+        } catch (\Exception $e) {
+            return back()->withErrors($e->getMessage());
+        }
+    }
+
+
     /**
      * Display a listing of the resource.
      *

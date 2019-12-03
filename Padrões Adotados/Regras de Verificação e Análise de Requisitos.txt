@@ -1,8 +1,8 @@
 # Para o processo de validação e análise dos requisitos serão utilizadas as seguintes regras:
 
 * Evitar palavras que podem gerar ambiguidade, como, por exemplo: "e", "ou", "até", "rapidamente";
-* Evitar frases grandes;
-* Separar requisitos de um a um.
+* Evitar frases grandes, maiores que 140 caracteres;
+* Separar requisitos de um a um, de forma que eles sejam atómicos. 
 
 # A nomenclatura será feita na forma:
 

@@ -8,15 +8,6 @@
 <form method="POST" class="root" action="{{ route('carona.store') }}">
     @csrf
     <div class="container" >
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-
-        @if(Session::has('msg'))
-            <div class="alert alert-info" role="alert">
-                {{Session::get("msg")}}
-            </div>
-        @endif
         <div class="infos-carro">
             <div class="inpItens">
                 <div>Destino:</div>
@@ -43,6 +34,17 @@
                 </select>
             </div>
         </div>
+        @if(Session::has('msg'))
+            <div class="alert alert-success" role="alert">
+                {{Session::get("msg")}}
+            </div>
+        @endisset
+
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger" role="alert">
+                {{$error}}
+            </div>
+        @endforeach
     </div>
     <input type="submit" class="button"/>
 </form>

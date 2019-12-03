@@ -9,35 +9,23 @@
 @endforeach
 
 
-<div class="container" >
+<div class="container" > 
+    <h1>Carona: </h1>
     <div class="infos-carro">
-        <div class="inpItens">
-            <div>Destino:</div>
-            <div> {{$carona->destino}}</div>
+        <div>
+            <div>Destino: {{$carona->local}}</div>
         </div>
-        <div class="inpItens">
-            <div>Hora de saída:</div>
-            <div> {{$carona->horaSaida}}</div>
+        <div>
+            <div>Data: {{$carona->data}}</div>
         </div>
-        <div class="inpItens">
-            <div>Previsão de chegada:</div>
-            <div> {{$carona->previsaoChegada}}</div>
+        <div>
+            <div>Hora de saída: {{$carona->horario}}</div>
         </div>
-        <div class="inpItens">
-            <div>Carro:</div>
-            <div> {{$carona->carro->marca}} - {{$carona->carro->modelo}}</div>
+        <div>
+            <div>Duração: {{$carona->duracao}}</div>
         </div>
-        <div class="inpItens">
-            <div>Pessoas no cmarcaarro:</div>
-            <div> {{$carona->pessoasCarro}}</div>
-        </div>
-        <div class="inpItens">
-            <div>Animais no carro:</div>
-            <div> {{$carona->animaisCarro}}</div>
-        </div>
-        <div class="inpItens">
-            <div>Lugar para mala:</div>
-            <div> {{$carona->lugarMala}}</div>
+        <div>
+            <div>Carro: {{$carona->getCarro->marca}} - {{$carona->getCarro->modelo}}</div>
         </div>
     </div>
 </div>

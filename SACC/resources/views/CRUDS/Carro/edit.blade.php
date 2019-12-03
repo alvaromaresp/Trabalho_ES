@@ -9,8 +9,9 @@
 
 
 <div class="container">
-    <form method="POST" action="{{ route('carro.store') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('carro.update', $carro) }}" enctype="multipart/form-data">
         @csrf
+        <input type="hidden" name="_method" value="PUT" />
         <div class="infos1">
             <div class="infos-carro">
                 <div class="inpItens">

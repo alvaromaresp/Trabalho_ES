@@ -12,7 +12,7 @@
         Caronas inscritas
     </a>
 
-    <a  href="" class="button">
+    <a  href="carona.procurar" class="button">
         Procurar carona
     </a>
 </div>

@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     public function caronasOferecidas()
     {
-        return $this->hasMany('App\Carona', 'oferece');
+        return $this->hasMany('App\Carona', 'oferece', 'id');
     }
     public function caronasProcuradas()
     {

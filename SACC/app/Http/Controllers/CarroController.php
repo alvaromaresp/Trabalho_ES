@@ -156,7 +156,7 @@ class CarroController extends Controller
         try {
             $msg = "Deletado com sucesso!";
             if ($carro->user->id != Auth::user()->id)
-                throw new Exception("Você não é dono desse carro!");
+                throw new \Exception("Você não é dono desse carro!");
             try {
                 $this->removePhoto('/public_images/Carro/' . $carro->id);
             } catch (\Spatie\Dropbox\Exceptions\BadRequest $e) {

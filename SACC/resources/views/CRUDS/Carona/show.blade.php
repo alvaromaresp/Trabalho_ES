@@ -39,7 +39,7 @@
             Feedbacks: 
             <ul>
             @foreach($carona->getFeedbacks as $fd)
-                <li class="card custom-card">{{$fd}} 
+                <li class="card custom-card">{{$fd->conteudo}} 
                     <form method="POST" action="{{ route('carona.destroy',$carona->id) }}" >
                         @csrf
                         <input type="hidden" name="_method" value="delete" />

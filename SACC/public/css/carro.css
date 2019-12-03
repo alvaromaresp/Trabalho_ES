@@ -1,0 +1,80 @@
+.container {
+    border: 0.2em solid #36213e;
+    border-radius: 0.5em;
+    background-color: white;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+.infos1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.infos-carro {
+    display: flex;
+    flex-direction: column;
+    color: #36213e;
+    font-size: 1.2em;
+}
+
+.img-carro {
+    max-width: 30em;
+    max-height: 20em;
+}
+
+.icons-carro {
+    align-self: flex-end;
+}
+
+.inpItens {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1%;
+}
+
+.inpItens > div {
+    text-align: left;
+    width: 10em;
+}
+
+.inpItens input {
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+    padding: 2%;
+}
+
+.inpItens select {
+    border-radius: 15px;
+
+}
+
+#airbag {
+    width: 100%;
+}
+
+.button {
+    background-color: #4a3580;
+    color: white;
+    width: 50%;
+    border-radius: 15px;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    text-align: center;
+    margin-top: 2%;
+    font-size: larger;
+    border: none;
+}
+
+.root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::resource('carona', 'CaronaController');
+    Route::resource('carro', 'CarroController');
+});
+
+Auth::routes();

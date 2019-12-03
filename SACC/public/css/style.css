@@ -1,0 +1,131 @@
+html,
+body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: "Nunito", sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.nav_bar {
+    background-color: #470e80;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5em !important;
+}
+
+.index-links {
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #ffffff;
+    margin: 0 0.5em 0.5em 0.5em;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.index-links:hover {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.submit-button {
+    display: inline-block;
+    padding: 0.35em 1.2em;
+    border: 0.1em solid #470e80;
+    margin: 0 0.5em 0.5em 0.5em;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #470e80;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.submit-button:hover {
+    color: #ffffff;
+    background-color: #470e80;
+}
+
+.full-lenght {
+    width: 100vw;
+    height: 10vh;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.logo {
+    font-family: "Cinzel", serif, bold;
+    font-size: 1.5em;
+    color: white;
+    font-weight: bold;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 5.25em;
+}
+
+.m-b-md {
+    margin-bottom: 1.875em;
+}
+
+.show-icon {
+    color: #470e80;
+}
+
+.navLink {
+    font-size: large;
+    color: white !important;
+}
+
+.activeNavLink {
+    text-decoration: underline !important;
+}
+
+#linksEsq {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav_bar div {
+    margin-right: 1.5em;
+    margin-left: 1.5em;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#main {
+    display: flex;
+    flex: 1;
+}

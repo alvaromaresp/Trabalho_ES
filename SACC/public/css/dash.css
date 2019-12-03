@@ -1,0 +1,23 @@
+.button {
+    background-color: #4a3580;
+    color: white;
+    width: 50%;
+    border-radius: 15px;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
+    text-align: center;
+    margin-top: 2%;
+    font-size: larger;
+}
+
+.group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.button:hover {
+    color: white;
+}

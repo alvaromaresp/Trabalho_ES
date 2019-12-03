@@ -4,10 +4,6 @@
 @endsection
 @section('content')
 
-@foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-@endforeach
-
 
 <div class="container" > 
     <h1>Escreva seu feedback: </h1>

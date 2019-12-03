@@ -44,7 +44,7 @@ class FeedbackController extends Controller
             $validatedData = $this->validation($request);
             $all = $request->all();
             $all['carona'] = $carona->id;
-            $all['autor'] = Auth::user();
+            $all['autor'] = Auth::user()->id;
             $feedback = Feedback::create($all);
             return redirect()->route('carona.show', $carona)->with('msg', 'Feedback enviado com sucesso!');
         } catch (\Illuminate\Validation\ValidationException $e) {

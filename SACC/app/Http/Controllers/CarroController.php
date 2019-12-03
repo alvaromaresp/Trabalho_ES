@@ -90,10 +90,7 @@ class CarroController extends Controller
      */
     public function show(Carro $carro)
     {
-        if ($carro->user->id == Auth::user()->id)
-            return view('CRUDS.Carro.show')->with('carro', $carro);
-        else
-            return back()->withErrors("Você não é dono desse carro!");
+        return view('CRUDS.Carro.show')->with('carro', $carro);
     }
 
     /**

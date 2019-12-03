@@ -38,8 +38,8 @@
          <div>
             Feedbacks: 
             <ul>
-            @foreach($carona->getProcura as $user)
-                <li class="card custom-card">{{$user->name}} 
+            @foreach($carona->getFeedbacks as $fd)
+                <li class="card custom-card">{{$fd}} 
                     <form method="POST" action="{{ route('carona.destroy',$carona->id) }}" >
                         @csrf
                         <input type="hidden" name="_method" value="delete" />

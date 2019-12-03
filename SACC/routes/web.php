@@ -20,8 +20,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('carona/procurar', 'CaronaController@procurar')->name('carona.procurar');
+    Route::get('carona/inscrever/{carona}', 'CaronaController@inscrever')->name('carona.inscrever');
+    Route::get('carona/minhas', 'CaronaController@minhas')->name('carona.minhas');
+    Route::get('carona/desinscrever/{carona}', 'CaronaController@desinscrever')->name('carona.desinscrever');
 
     Route::resource('carona', 'CaronaController');
+
     Route::resource('carro', 'CarroController');
 });
 

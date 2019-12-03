@@ -20,7 +20,7 @@
                <td>{{$carona->local}} </td>
                <td>{{$carona->horario}} </td>
                <td>{{$carona->duracao}} </td>
-               <td>{{$carona->getCarro->marca}} - {{$carona->getCarro->modelo}}</td>
+               <td><a href="{{route('carro.show', $carona->getCarro)}}">{{$carona->getCarro->marca}} - {{$carona->getCarro->modelo}}</a></td>
                <td>{{$carona->getOferece->name}}</td>
 
                    <td>

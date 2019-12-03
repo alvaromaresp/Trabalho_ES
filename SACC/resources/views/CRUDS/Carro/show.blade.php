@@ -10,16 +10,6 @@
 
 
 <div class="container">
-    @if(Session::has('msg'))
-        <div class="alert alert-info" role="alert">
-            {{Session::get("msg")}}
-        </div>
-    @endif
-    @foreach ($errors->all() as $error)
-        <div class="alert alert-error" role="alert">
-            <li>{{ $error }}</li>
-        </div>
-    @endforeach
     <div class="infos1">
         <div class="infos-carro">
             <div><h1>{{$carro->nome}}</h1></div>
@@ -42,6 +32,17 @@
             <input type="hidden" name="_method" value="delete" />
         </form>
     </div>
+    @if(Session::has('msg'))
+        <div class="alert alert-success" role="alert">
+            {{Session::get("msg")}}
+        </div>
+    @endisset
+
+    @foreach ($errors->all() as $error)
+        <div class="alert alert-danger" role="alert">
+            {{$error}}
+        </div>
+    @endforeach
 
 
 </div>

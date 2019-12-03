@@ -15,7 +15,7 @@ class CaronaController extends Controller
      */
     public function index()
     {
-        $caronas = Carona::all();
+        $caronas = Auth::user()->caronasOferecidas();
         return view('CRUDS.Carona.index')->with(['caronas' => $caronas]);
     }
 

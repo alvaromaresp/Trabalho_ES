@@ -21,4 +21,8 @@ class Carona extends Model
     {
         return $this->belongsTo('App\Carro', 'carro');
     }
+    public function getFeedbacks()
+    {
+        return $this->hasMany('App\Feedback', 'carona', 'id');
+    }
 }

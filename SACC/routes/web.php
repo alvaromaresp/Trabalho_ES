@@ -24,6 +24,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('carona/inscrever/{carona}', 'CaronaController@inscrever')->name('carona.inscrever');
     Route::get('carona/minhas', 'CaronaController@minhas')->name('carona.minhas');
     Route::get('carona/desinscrever/{carona}', 'CaronaController@desinscrever')->name('carona.desinscrever');
+    Route::get('feedback/{carona}', 'FeedbackController@create')->name('feedback.create');
+    Route::post('feedback/{carona}', 'FeedbackController@store')->name('feedback.store');
+    Route::delete('feedback/{carona}', 'FeedbackController@destroy')->name('feedback.destroy');
+
+
 
     Route::resource('carona', 'CaronaController');
 

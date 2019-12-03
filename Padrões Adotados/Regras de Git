@@ -1,10 +1,8 @@
 ## Regras e boas práticas de uso do repositório no GitHub:
 
-* Fazer commits que possuem um único propósito (alteração em um único arquivo apenas, por exemplo) com intuito de não acumular alterações para um único push e deixar o history mais compreensível.
 * Escrever mensagens no commit que expliquem em, poucas palavras (144 caracteres), qual o intuito daquele push.
 * Sempre dê commits após alguma modificação, não acumule commits.
 * Se sua alteração gera um arquivo automático, adicione-o no .gitignore.
 * Crie uma branch para modificações de grande impacto.
-* Não dê commit direto para a branch master.
 * Sempre teste antes de dar push.
 

@@ -20,7 +20,7 @@
                <td>{{$carona->duracao}} </td>
                <td>{{$carona->getCarro->marca}} - {{$carona->getCarro->modelo}}</td>
                <td>{{$carona->getOferece->name}}</td>
-               <td><a href="{{route('carona.inscrever', $carona)}}">INSCREVER</a></td>
+               <td>@if($carona->inscrito)<a href="{{route('carona.inscrever', $carona)}}">INSCREVER</a>@else INSCRITO @endif</td>
            </tr>
         @endforeach
     </table>

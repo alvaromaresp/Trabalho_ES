@@ -38,8 +38,9 @@
                     <input class="input" type="checkbox" {{$carro->airbag?'checked':''}} name="airbag" id="airbag"/>
                 </div>
             </div>
-            <div>
-                <img src="{{$carro->foto}}" alt="">
+            <div style="display: flex;flex-direction:column;">
+                <img src="{{$carro->foto}}" width="400">
+                <input type="file" name="foto"/>
             </div>
             
         </div>

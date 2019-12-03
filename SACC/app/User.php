@@ -50,4 +50,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Carona', 'carona_procura', 'usuario', 'carona');
     }
+    public function feedbacks()
+    {
+        return $this->hasMany('App\Feedback', 'autor', 'id');
+    }
 }

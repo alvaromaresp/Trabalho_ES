@@ -18,8 +18,9 @@
                <td>{{$carona->local}} </td>
                <td>{{$carona->horario}} </td>
                <td>{{$carona->duracao}} </td>
-               <td>{{$carona->getCarro->marca}} - {{$carona->getCarro->modelo}}</td>
+               <td><a href="{{route('carro.show', $carona->getCarro)}}">{{$carona->getCarro->marca}} - {{$carona->getCarro->modelo}}</a></td>
                <td>{{$carona->getOferece->name}}</td>
+               <td><a href="{{ route('carona.show', $carona->id) }}"><span class="fa fa-info fa-2x show-icon"></span></a></td>
                <td>@if(!$carona->inscrito)<a href="{{route('carona.inscrever', $carona)}}">INSCREVER</a>@else INSCRITO @endif</td>
            </tr>
         @endforeach

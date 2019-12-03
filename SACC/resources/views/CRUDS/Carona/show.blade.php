@@ -35,6 +35,22 @@
             @endforeach
             </ul>
         </div>
+         <div>
+            Feedbacks: 
+            <ul>
+            @foreach($carona->getFeedbacks as $fd)
+                <li class="card custom-card">{{$fd->conteudo}} 
+                    <form method="POST" action="{{ route('carona.destroy',$carona->id) }}" >
+                        @csrf
+                        <input type="hidden" name="_method" value="delete" />
+                        <button class="btn" type="submit">
+                            <span class="fa fa-trash fa-2x show-icon"></span>
+                        </button>
+                    </form>
+                </li>
+            @endforeach
+            </ul>
+        </div>
     </div>
     @if(Session::has('msg'))
         <div class="alert alert-success" role="alert">

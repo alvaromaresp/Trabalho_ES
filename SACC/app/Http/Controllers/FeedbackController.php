@@ -19,7 +19,17 @@ class FeedbackController extends Controller
      */
     public function create(Carona $carona)
     {
-        return view('CRUDS.Feedback.create')->with('carona', $carona);
+        try {
+            foreach ($carona->getFeedbacks as $fd) {
+                if ($fd->getAutor->id == Auth::user()->id)
+                    return view('CRUDS.Feedback.edit')->with('feedback', $fd);
+            }
+            if ($carona->data > date("Y-m-d"))
+                throw new \Exception("Não é possivel fornecer feedback de uma carona que ainda não aconteceu!");
+            return view('CRUDS.Feedback.create')->with('carona', $carona);
+        } catch (\Exception $e) {
+            return back()->withErrors($e->getMessage());
+        }
     }
 
     /**
@@ -37,7 +47,7 @@ class FeedbackController extends Controller
             if (!$carona->getProcura->contains('id', Auth::user()->id)) {
                 throw new \Exception('Você não pode dar feedback para uma carona que não realizou!!!');
             }
-            if ($carona->data < date('Y-m-d')) {
+            if ($carona->data > date('Y-m-d')) {
                 throw new \Exception('Você não pode dar feedback para uma carona que ainda não aconteceu!!!');
             }
 
@@ -77,9 +87,41 @@ class FeedbackController extends Controller
     public function destroy(Feedback $feedback)
     {
         try {
+            if ($feedback->getAutor->id != Auth::user()->id)
+                throw new \Exception("Esse feedback não pertence a você!");
             $carona = $feedback->getCarona;
             $feedback->delete();
-            return redirect()->route('carona.show', $carona);
+            return redirect()->route('carona.show', $carona)->with('msg', "Deletado com sucesso!");
+        } catch (\Exception $e) {
+            return back()->withErrors($e->getMessage());
+        }
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Feedback  $feedback
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Feedback $feedback)
+    {
+        try {
+            if ($feedback->getAutor->id != Auth::user()->id)
+                throw new \Exception("Você não é dono desse feedback!");
+            return view('CRUDS.Feedback.edit')->with(['feedback' => $feedback]);
+        } catch (\Exception $e) {
+            return back()->withErrors($e->getMessage());
+        }
+    }
+
+    public function update(Feedback $feedback, Request $request)
+    {
+        try {
+            $validatedData = $this->validation($request, true);
+            $feedback->fill($request->all())->save();
+            return redirect()->route('carona.show', $feedback->getCarona)->with('msg', 'Feedback atualizado com sucesso!');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return back()->withErrors($e->validator);
         } catch (\Exception $e) {
             return back()->withErrors($e->getMessage());
         }

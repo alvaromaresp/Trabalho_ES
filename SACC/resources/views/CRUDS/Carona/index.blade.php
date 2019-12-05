@@ -8,7 +8,7 @@
 
 
 <div class="container" >
-    <h1>Caronas: </h1>
+    <h1>Suas caronas oferecidas: </h1>
 
     <hr>
     <table class="table table-hover table-bordered">
@@ -32,7 +32,7 @@
                             </button>
                         </form>
                     </td>
-                    
+
                <td><a href="{{ route('carona.edit', $carona->id) }}"><span class="fa fa-pencil-square fa-2x show-icon"></span></a></td>
                <td><a href="{{ route('carona.show', $carona->id) }}"><span class="fa fa-info fa-2x show-icon"></span></a></td>
            </tr>

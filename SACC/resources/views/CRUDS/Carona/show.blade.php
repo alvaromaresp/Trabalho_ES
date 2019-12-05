@@ -4,12 +4,10 @@
 @endsection
 @section('content')
 
-@foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-@endforeach
 
 
-<div class="container" > 
+
+<div class="container" >
     <h1>Carona: </h1>
     <div class="infos-carro">
         <div>
@@ -28,7 +26,7 @@
             <div>Carro: {{$carona->getCarro->marca}} - {{$carona->getCarro->modelo}}</div>
         </div>
         <div>
-            Inscritos: 
+            Inscritos:
             <ul>
             @foreach($carona->getProcura as $user)
                 <li>{{$user->name}}</li>
@@ -36,18 +34,32 @@
             </ul>
         </div>
          <div>
-            Feedbacks: 
+            Feedbacks:
             <ul>
             @foreach($carona->getFeedbacks as $fd)
-                <li class="card custom-card">{{$fd->conteudo}} 
-                    <form method="POST" action="{{ route('carona.destroy',$carona->id) }}" >
-                        @csrf
-                        <input type="hidden" name="_method" value="delete" />
-                        <button class="btn" type="submit">
-                            <span class="fa fa-trash fa-2x show-icon"></span>
+
+                <div class="card custom-card">
+
+
+                    {{$fd->conteudo}}
+                    @if($fd->getAutor->id == Auth::user()->id)
+                    <div>
+                        <a href="{{route('feedback.edit',$fd)}}">
+                        <button class="btn">
+                            <span class="fa fa-edit fa-2x show-icon"></span>
                         </button>
-                    </form>
-                </li>
+                        </a>
+                        <form method="POST" action="{{ route('feedback.destroy',$fd) }}" >
+                            @csrf
+                            <input type="hidden" name="_method" value="delete" />
+                            <button class="btn" type="submit">
+                                <span class="fa fa-trash fa-2x show-icon"></span>
+                            </button>
+                        </form>
+                    </div>
+                    @endif
+                </div>
+                Escrito por: {{$fd->getAutor->name}}<br/><br/>
             @endforeach
             </ul>
         </div>
@@ -64,5 +76,5 @@
         </div>
     @endforeach
 </div>
-   
+
 @endsection

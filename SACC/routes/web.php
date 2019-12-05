@@ -26,8 +26,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('carona/desinscrever/{carona}', 'CaronaController@desinscrever')->name('carona.desinscrever');
     Route::get('feedback/{carona}', 'FeedbackController@create')->name('feedback.create');
     Route::post('feedback/{carona}', 'FeedbackController@store')->name('feedback.store');
-    Route::delete('feedback/{carona}', 'FeedbackController@destroy')->name('feedback.destroy');
-
+    Route::delete('feedback/{feedback}', 'FeedbackController@destroy')->name('feedback.destroy');
+    Route::get('feedback/{feedback}/edit', 'FeedbackController@edit')->name('feedback.edit');
+    Route::put('feedback/{feedback}', 'FeedbackController@update')->name('feedback.update');
 
 
     Route::resource('carona', 'CaronaController');

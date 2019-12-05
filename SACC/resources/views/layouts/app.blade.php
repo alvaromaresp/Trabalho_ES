@@ -24,13 +24,15 @@
     <link rel="stylesheet" type="text/css" href="{{URL::asset('css/bootstrap.min.css')}}"/>
     @yield('head')
 </head>
-<body style="background-image: url({{ URL::asset('img/street.jpg' )}})">
+<body style="height: auto; min-height: 100%; background-image: url({{ URL::asset('img/street.jpg' )}})">
     <div id="app" style="height: 100%;">
 
         <nav class = "full-lenght nav_bar">
-            <div class="logo">
-                SACC
-            </div>
+            <a href="{{route('home')}}">
+                <div class="logo">
+                    SACC
+                </div>
+            </a>
             <div class="">
             @guest
 

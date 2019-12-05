@@ -47,6 +47,6 @@
             </div>
         @endforeach
     </div>
-    <input type="submit" class="button"/>
+    <input type="submit" value="Enviar" class="button"/>
 </form>
 @endsection

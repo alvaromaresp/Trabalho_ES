@@ -9,7 +9,7 @@ class Carona extends Model
 
     protected $guarded = ['id'];
     public $timestamps = false;
-    //teste
+    //teste222322
 
     public function getOferece()
     {
